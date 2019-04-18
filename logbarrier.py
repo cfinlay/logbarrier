@@ -105,7 +105,6 @@ class Attack(object):
 
 
 
-    #N = num_images
 
     #d1 = torch.full((N,),np.inf)
     #d2 = torch.full((N,),np.inf)
@@ -144,7 +143,8 @@ class Attack(object):
 
         xpert[~mis0]= x[~mis0]
         xold = xpert.clone()
-
+        xbest = xpert.clone()
+        diffBest = torch.full((Nb,),np.inf,device=x.device)
         xpert.requires_grad_(True)
 
         for k in range(max_outer):
@@ -185,15 +185,19 @@ class Attack(object):
                         c = criterion(xpert,y)
 
                     diff = (xpert - x).view(Nb,-1).norm(self.norm,-1)
+                    boolDiff = diff <= diffBest
+                    xbest[boolDiff] = xpert[boolDiff]
+                    diffBest[boolDiff] = diff[boolDiff]
+
                     iterdiff = (xpert - xold).view(Nb,-1).norm(self.norm,-1)
-                    med = diff.median()
+                    #med = diff.median()
 
                     xold = xpert.clone()
 
 
                 if self.verbose:
                     sys.stdout.write('  [%2d outer, %4d inner] median & max distance: (%4.4f, %4.4f)\r'
-                        %(k, j, med,diff.max()))
+                        %(k, j, diffBest.median() , diffBest.max()))
 
                 if not iterdiff.abs().max()>tol:
                     break
@@ -201,8 +205,8 @@ class Attack(object):
         if self.verbose:
             sys.stdout.write('\n')
 
-        switched = ~criterion(xpert,y)
-        PerturbedImages[switched] = xpert.detach()[switched]
+        switched = ~criterion(xbest,y)
+        PerturbedImages[switched] = xbest.detach()[switched]
 
         self.perturbed_images = PerturbedImages
 
