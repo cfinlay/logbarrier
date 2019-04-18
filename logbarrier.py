@@ -103,20 +103,6 @@ class Attack(object):
         self.hyperparams = config
 
 
-
-
-
-    #d1 = torch.full((N,),np.inf)
-    #d2 = torch.full((N,),np.inf)
-    #dinf = torch.full((N,),np.inf)
-
-    #has_cuda = torch.cuda.is_available()
-    #if has_cuda:
-    #    d1 = d1.cuda()
-    #    d2 = d2.cuda()
-    #    dinf = dinf.cuda()
-
-
     def __call__(self, x, y):
         self.labels = y
         self.original_images = x
