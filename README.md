@@ -5,7 +5,7 @@ This repository implements the logarithmic barrier adversarial attack, described
 The logarithmic barrier adversarial attack begins with a mis-classified image.
 It then iteratively minimizes distance to a clean unperturbed image, while
 enforcing model mis-classification, using the logarithmic barrier function.
-The LogBarrier attack strength is its ability to adversarially perturb *all*
+The strength of the LogBarrier attack is its ability to adversarially perturb *all*
 images with a relatively small norm, compared to other attack methods (say for
 example PGD).  The LogBarrier attack works well in both the Euclidean and
 maximum norms.
