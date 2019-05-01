@@ -52,7 +52,6 @@ class Attack(object):
 
         Arguments:
             model: PyTorch model, takes batch of inputs and returns logits
-            loader: PyTorch dataset DataLoader
             criterion: function which takes in images and labels and a model, and returns
                 a boolean vector, which is True is model prediction is correct
                 For example, the Top1 or Top5 classification criteria
