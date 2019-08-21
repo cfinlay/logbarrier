@@ -10,6 +10,8 @@ images with a relatively small norm, compared to other attack methods (say for
 example PGD).  The LogBarrier attack works well in both the Euclidean and
 maximum norms.
 
+**Update 2019-08-21** We have updated the LogBarrier method for any non-smooth metric (including state-of-the-art L0 attacks). Please see the repo [ProxLogBarrierAttack](https://github.com/APooladian/ProxLogBarrierAttack), and accompanying [preprint](https://arxiv.org/abs/1908.01667). 
+
 ## Details
 Written in Python 3 and PyTorch 1.0.
 
