@@ -22,13 +22,11 @@ An example attack, on a pretrained CIFAR10 model, is provided in
 ### Citation
 If you find the LogBarrier attack useful in your scientific work, please cite as
 ```
-@article{finlay2019logbarrier,
-  title={The {L}og{B}arrier adversarial attack: making effective use of decision boundary information},
-  author={Finlay, Chris and Pooladian, Aram-Alexandre and Oberman, Adam M.},
-  journal={arXiv preprint arXiv:1903.10396},
-  year={2019},
-  url={http://arxiv.org/abs/1903.10396},
-  archivePrefix={arXiv},
-  eprint={1903.10396},
-}
+@InProceedings{Finlay_2019_ICCV,
+  author = {Finlay, Chris and Pooladian, Aram-Alexandre and Oberman, Adam},
+  title = {The LogBarrier Adversarial Attack: Making Effective Use of Decision Boundary Information},
+  booktitle = {The IEEE International Conference on Computer Vision (ICCV)},
+  month = {October},
+  year = {2019}
+} 
 ```
